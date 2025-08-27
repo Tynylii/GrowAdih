@@ -1,0 +1,124 @@
+:root {
+    --main-color: rgb(19, 197, 19);
+    --secondary-color: rgb(84, 84, 215);
+    --dih-color: rgb(100, 47, 47);
+    --text-color: white;
+    --shadow: 0px 10px 5px rgba(0, 0, 0, 0.203),
+              0px 15px 10px rgba(93, 90, 90, 0.263);
+    --transition: all 0.3s ease;
+}
+
+* {
+  transition: var(--transition);
+}
+
+img {
+    transform: translateY(150px);
+    display: block;
+    z-index: 10;
+    cursor: pointer;
+}
+
+* {
+    font-size: 150%;
+    box-sizing: border-box;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+ .navbar {
+      display: flex;
+      flex-direction: row;
+      background-color: #333;
+      overflow: hidden;
+      position: fixed; /* jää näkyviin sivun yläreunaan */
+      top: 0;
+      width: 100%;
+      left: 0px;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    
+    }
+
+    .navbar button {
+      background-color: #333;
+      border: none;
+      color: white;
+      padding: 14px 20px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .navbar button:hover {
+      background-color: #575757;
+    }
+
+    .content {
+      padding: 80px 20px;
+    }
+
+   .shop {
+    position: fixed;
+    top: 175px;
+    font-size: small;
+    right: 20px;
+    width: 320px;
+    height: 60vh;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    background: #f7e947;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 50px;
+  }
+
+  .shop button {
+    border-radius: 10px;
+    height: 100px;
+    width: 290px;
+    font-size: large;
+    background-color: greenyellow;
+    color: black;
+    font-weight: 800;
+    transform: translateY(10px);
+  }
+
+  .shop button:hover {
+    background-color: aqua;
+  }
+
+  .shop h1 {
+    font-size: xx-large;
+  }
+
+.tehot {
+    size: 10px;
+    font-size: medium;
+    position: absolute;
+}
+
+.tehot h1 {
+    color: white;
+    font-weight: 900;
+}
+
+.tehot .automaatioteho {
+   transform: translateX(-400px) translateY(-30px);
+}
+
+.tehot .klikkausteho {
+   transform: translateX(400px) translateY(30px);
+}
