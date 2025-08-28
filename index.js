@@ -9,79 +9,99 @@ let clickattu = 0;
 let clickvalue = 1;
 let automationvalue = 0;
 let clicksound = new Audio("audio/mouse-click.mp3");
+let currentDih = "default";
 
-let firstupragecost = 100;
 
 kuva.addEventListener("click", () => {
-  koko += clickvalue; clickattu += clickvalue;
-  kuva.style.width = koko + "px"
+  koko += clickvalue;
+  clickattu += clickvalue;
+  kuva.style.width = koko + "px";
   count.textContent = clickattu + "mm";   
-  
+
   clicksound.volume = 1.0;
-  clicksound.play()
+  clicksound.play();
 
   if (kuva.clientWidth > 350) {
-        koko = 200;
-  }
-
-  if(clickattu > 75) {
-    if(!kuva.src.endsWith("dih2.png")) {
-        kuva.src = "assets/dih2.png";
-        koko = 200;
-        kuva.style.width = koko + "px";
-        showAchievement("Uusi dih avattu, Inferno dih!");
-      }
-    }
-    if(clickattu > 750) {
-       if(!kuva.src.endsWith("black.png")) {
-          kuva.src = "assets/black.png";
-          koko = 200;
-          kuva.style.width = koko + "px";
-         showAchievement("Uusi dih avattu, Black dih!");
-      }
-    }
-     if(clickattu > 7500) {
-       if(!kuva.src.endsWith("alien dih.png")) {
-          kuva.src = "assets/alien dih.png";
-          koko = 200;
-          kuva.style.width = koko + "px";
-         showAchievement("Uusi dih avattu, Alien dih!");
-     }
-    }
-  });
-
-    function showAchievement(text) {
-      achievementBox.textContent = text;
-      achievementBox.classList.add("show");
-
-      setTimeout(() => {
-        achievementBox.classList.remove("show");
-      }, 3000);}
-
-function autoclicker(number) {
-  setInterval(() => {
-    koko += number; clickattu += number;
+    koko = 200;
     kuva.style.width = koko + "px";
-    count.textContent = clickattu + "mm";
-    
-     if (kuva.clientWidth > 350) {
-        koko = 200;
   }
-  }, 1000)
+
+  // 🔥 Tarkistus järjestyksessä isommasta pienimpään
+  if (clickattu > 7499 && currentDih !== "alien") {
+    kuva.src = "assets/alien_dih.png";
+    resetKuva();
+    showAchievement("Uusi dih avattu, Alien dih!");
+    currentDih = "alien";
+  } 
+  else if (clickattu > 749 && currentDih !== "black" && currentDih !== "alien") {
+    kuva.src = "assets/black.png";
+    resetKuva();
+    showAchievement("Uusi dih avattu, Black dih!");
+    currentDih = "black";
+  } 
+  else if (clickattu > 74 && currentDih === "default") {
+    kuva.src = "assets/dih2.png";
+    resetKuva();
+    showAchievement("Uusi dih avattu, Inferno dih!");
+    currentDih = "inferno";
+  }
+});
+
+function resetKuva() {
+  koko = 200;
+  kuva.style.width = koko + "px";
 }
 
-kuva.addEventListener("load", () => {
-  autoclicker(automationvalue)
-})
+function showAchievement(text) {
+  achievementBox.textContent = text;
+  achievementBox.classList.add("show");
 
-function sC(number, number2) {
-  if(clickattu > number2) {
-   clickattu -= number2
-   automationvalue =+ number;
-  }}
+  setTimeout(() => {
+    achievementBox.classList.remove("show");
+  }, 3000);
+}
 
-function setKlikkausarvo(number, number2) {
-  if(clickattu > number2) {
-   clickattu -= number2
-   clickvalue =+ number;
-}}
+function autoclicker() {
+  setInterval(() => {
+    if (automationvalue > 0) {
+      koko += automationvalue;
+      clickattu += automationvalue;
+      kuva.style.width = koko + "px";
+      count.textContent = clickattu + "mm";
+
+      if (kuva.clientWidth > 350) {
+        koko = 200;
+        kuva.style.width = koko + "px";
+      }
+    }
+  }, 1000);
+}
+autoclicker(); // käynnistetään aina taustalle
+
+function setAutomaatioarvo(amount, cost) {
+  if(clickattu >= cost) {
+    clickattu -= cost;
+    automationvalue += amount;
+    count.textContent = clickattu + "mm";
+
+    // päivitä teksti
+    document.getElementById("automaatioteho").textContent = 
+      "Automaatioteho " + automationvalue.toFixed(1);
+  } else {
+    showAchievement("Sinun dih on liian pieni ostoon!");
+  }
+}
+
+function setKlikkausarvo(amount, cost) {
+  if(clickattu >= cost) {
+    clickattu -= cost;
+    clickvalue += amount;
+    count.textContent = clickattu + "mm";
+
+    // päivitä teksti
+    document.getElementById("klikkausteho").textContent = 
+      "Klikkausteho " + clickvalue.toFixed(1);
+  } else {
+    showAchievement("Sinun dih on liian pieni ostoon!");
+  }
+}

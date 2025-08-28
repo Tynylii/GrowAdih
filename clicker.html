@@ -10,32 +10,37 @@
     <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body>
-     <div class="navbar">
-    <a id="count">0mm</a>
-    <audio src="audio/theme.mp3" autoplay loop></audio>
-       <div class="tehot" id="tehot">
-        <h1 id="klikkausteho" class="klikkausteho">Klikkausteho 1.0</h1>
-        <h1 id="automaatioteho" class="automaatioteho">Automaatioteho 1.0</h1>
+    <div class="navbar">
+        <span id="count">0mm</span>
+        <audio src="audio/theme.mp3" autoplay loop></audio>
+        <div class="tehot" id="tehot">
+            <h1 id="klikkausteho" class="klikkausteho">Klikkausteho 1.0</h1>
+            <h1 id="automaatioteho" class="automaatioteho">Automaatioteho 1.0</h1>
+        </div>
     </div>
 
-  </div>
-    </div>
     <div class="clickable" id="clickableid"> 
         <img src="assets/favicon.png" class="Kulli1" id="kulli1id" alt="Kulli1">
 
-        <div id="achievement">
-            <img src="assets/dih2.png" alt="dih🥀">
-        </div>
+        <div id="achievement"></div>
 
         <div id="shop" class="shop">
             <h1>Kauppa</h1>
         
-            <button type="button" onclick="etAutomaatioarvo(1, 50)" class="klikkauslvl1" id="klikkauslvl1">Masturbaatio lvl 1 (Hinta 50mm) (klikkausteho)</button>
-            <button type="button" onclick="" class="automaatiolvl1" id="automaatiolvl1">Bricked lvl 1 (Hinta 50mm) (automaatio)</button>
+            <!-- Klikkausteho -->
+            <button type="button" onclick="setKlikkausarvo(1, 50)" 
+                    class="klikkauslvl1" id="klikkauslvl1">
+                Masturbaatio lvl 1 (Hinta 50mm) (klikkausteho)
+            </button>
+
+            <!-- Automaatio -->
+            <button type="button" onclick="setAutomaatioarvo(1, 50)" 
+                    class="automaatiolvl1" id="automaatiolvl1">
+                Bricked lvl 1 (Hinta 50mm) (automaatio)
+            </button>
 
             <h1>Tulossa pian</h1>
         </div>
     </div>
-
 </body>
 </html>
