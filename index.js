@@ -113,9 +113,17 @@ function save() {
     localStorage.setItem("klikkausteho", clickvalue);
     localStorage.setItem("automaatioteho", automationvalue);
     localStorage.setItem("koko", koko);
-  }, 1000);
+  }, 500);
 }
 
 function load() {
-  localStorage.getItem
+  clickattu = localStorage.getItem("klikit");
+  currentDih = localStorage.getItem("currentDih");
+  clickvalue = localStorage.getItem("klikkausteho");
+  automationvalue = localStorage.getItem("automaatioteho");
+  koko = localStorage.getItem("koko")
+}
+
+window.onload() = function() {
+  load();
 }
