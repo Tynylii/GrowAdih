@@ -105,3 +105,17 @@ function setKlikkausarvo(amount, cost) {
     showAchievement("Sinun dih on liian pieni ostoon!");
   }
 }
+
+function save() {
+  setInterval(() => {
+    localStorage.setItem("klikit", clickattu);
+    localStorage.setItem("currentdih", currentDih);
+    localStorage.setItem("klikkausteho", clickvalue);
+    localStorage.setItem("automaatioteho", automationvalue);
+    localStorage.setItem("koko", koko);
+  }, 1000);
+}
+
+function load() {
+  localStorage.getItem
+}

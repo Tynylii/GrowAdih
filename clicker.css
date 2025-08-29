@@ -32,9 +32,9 @@ div {
  .navbar {
       display: flex;
       flex-direction: row;
-      background-color: #333;
+      background-color: blueviolet;
       overflow: hidden;
-      position: fixed; /* jää näkyviin sivun yläreunaan */
+      position: fixed;
       top: 0;
       width: 100%;
       left: 0px;
@@ -83,6 +83,7 @@ div {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     gap: 50px;
+    box-shadow: var(--shadow);
   }
 
   .shop button {
