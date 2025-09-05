@@ -25,7 +25,7 @@ kuva.addEventListener("click", () => {
     koko = 200;
     kuva.style.width = koko + "px";
   }
-  
+
   if (clickattu > 74999 && currentDih !== "demonic") {
     kuva.src = "assets/demonic_dih";
     resetKuva();
@@ -33,7 +33,7 @@ kuva.addEventListener("click", () => {
     currentDih = "demonic";
   } 
 
-  if (clickattu > 7499 && currentDih !== "alien") {
+  else if (clickattu > 7499 && currentDih !== "alien") {
     kuva.src = "assets/alien_dih.png";
     resetKuva();
     showAchievement("Uusi dih avattu, Alien dih!");
