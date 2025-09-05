@@ -25,8 +25,14 @@ kuva.addEventListener("click", () => {
     koko = 200;
     kuva.style.width = koko + "px";
   }
+  
+  if (clickattu > 74999 && currentDih !== "demonic") {
+    kuva.src = "assets/demonic_dih";
+    resetKuva();
+    showAchievement("Uusi dih avattu, Demonic dih!");
+    currentDih = "demonic";
+  } 
 
-  // 🔥 Tarkistus järjestyksessä isommasta pienimpään
   if (clickattu > 7499 && currentDih !== "alien") {
     kuva.src = "assets/alien_dih.png";
     resetKuva();
@@ -107,9 +113,10 @@ function setKlikkausarvo(amount, cost) {
 }
 
 function save() {
+  // tallennus 0.5s välein
   setInterval(() => {
     localStorage.setItem("klikit", clickattu);
-    localStorage.setItem("currentdih", currentDih);
+    localStorage.setItem("currentDih", currentDih);
     localStorage.setItem("klikkausteho", clickvalue);
     localStorage.setItem("automaatioteho", automationvalue);
     localStorage.setItem("koko", koko);
@@ -117,13 +124,15 @@ function save() {
 }
 
 function load() {
-  clickattu = localStorage.getItem("klikit");
-  currentDih = localStorage.getItem("currentDih");
-  clickvalue = localStorage.getItem("klikkausteho");
-  automationvalue = localStorage.getItem("automaatioteho");
-  koko = localStorage.getItem("koko")
+  // haetaan arvot ja muunnetaan numerot takaisin
+  clickattu = parseInt(localStorage.getItem("klikit")) || 0;
+  currentDih = localStorage.getItem("currentDih") || "";
+  clickvalue = parseInt(localStorage.getItem("klikkausteho")) || 1;
+  automationvalue = parseInt(localStorage.getItem("automaatioteho")) || 0;
+  koko = parseInt(localStorage.getItem("koko")) || 200;
 }
 
-window.onload() = function() {
+window.onload = function() {
   load();
-}
+  save();
+};
