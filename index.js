@@ -27,13 +27,13 @@ kuva.addEventListener("click", () => {
   }
 
   if (clickattu > 74999 && currentDih !== "demonic") {
-    kuva.src = "assets/demonic_dih";
+    kuva.src = "assets/demonic_dih.png";
     resetKuva();
     showAchievement("Uusi dih avattu, Demonic dih!");
     currentDih = "demonic";
   } 
 
-  else if (clickattu > 7499 && currentDih !== "alien") {
+  else if (clickattu > 7499 && currentDih !== "alien" && currentDih !== "demonic") {
     kuva.src = "assets/alien_dih.png";
     resetKuva();
     showAchievement("Uusi dih avattu, Alien dih!");
