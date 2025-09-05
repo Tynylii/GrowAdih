@@ -39,7 +39,7 @@ kuva.addEventListener("click", () => {
     showAchievement("Uusi dih avattu, Alien dih!");
     currentDih = "alien";
   } 
-  else if (clickattu > 749 && currentDih !== "black" && currentDih !== "alien") {
+  else if (clickattu > 749 && currentDih !== "black" && currentDih !== "alien" && currentDih !== "demonic") {
     kuva.src = "assets/black.png";
     resetKuva();
     showAchievement("Uusi dih avattu, Black dih!");
