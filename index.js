@@ -130,6 +130,27 @@ function load() {
   clickvalue = parseInt(localStorage.getItem("klikkausteho")) || 1;
   automationvalue = parseInt(localStorage.getItem("automaatioteho")) || 0;
   koko = parseInt(localStorage.getItem("koko")) || 200;
+
+  clickvalue == clickvalue;
+  automationvalue == automationvalue;
+  clickattu == clickattu;
+  
+  if(currentDih == "demonic") {
+    kuva.src = "assets/demonic_dih.png";
+    resetKuva();
+  } else if(currentDih == "alien") {
+    kuva.src = "assets/alien_dih.png";
+    resetKuva();
+  } else if(currentDih == "black") {
+    kuva.src = "assets/black.png";
+    resetKuva();
+  } else if(currentDih == "inferno") {
+    kuva.src = "assets/dih2.png";
+    resetKuva();  
+  } else {
+    kuva.src = "assets/favicon.png";
+    resetKuva();
+  }
 }
 
 window.onload = function() {
