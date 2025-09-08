@@ -26,20 +26,28 @@ kuva.addEventListener("click", () => {
     kuva.style.width = koko + "px";
   }
 
-  if (clickattu > 74999 && currentDih !== "demonic") {
+  if(clickattu > 749999 && currentDih !== "angelic") {
+    kuva.src = "assets/angelic_dih.png";
+    resetKuva();
+    showAchievement("Uusi dih avattu, Angelic dih!");
+    currentDih = "angelic";
+  } 
+
+  else if (clickattu > 74999 && currentDih !== "demonic" && currentDih !== "angelic") {
     kuva.src = "assets/demonic_dih.png";
     resetKuva();
     showAchievement("Uusi dih avattu, Demonic dih!");
     currentDih = "demonic";
   } 
 
-  else if (clickattu > 7499 && currentDih !== "alien" && currentDih !== "demonic") {
+  else if (clickattu > 7499 && currentDih !== "alien" && currentDih !== "demonic" && currentDih !== "angelic") {
     kuva.src = "assets/alien_dih.png";
     resetKuva();
     showAchievement("Uusi dih avattu, Alien dih!");
     currentDih = "alien";
   } 
-  else if (clickattu > 749 && currentDih !== "black" && currentDih !== "alien" && currentDih !== "demonic") {
+
+  else if (clickattu > 749 && currentDih !== "black" && currentDih !== "alien" && currentDih !== "demonic" && currentDih !== "angelic") {
     kuva.src = "assets/black.png";
     resetKuva();
     showAchievement("Uusi dih avattu, Black dih!");
@@ -92,7 +100,7 @@ function setAutomaatioarvo(amount, cost) {
 
     // päivitä teksti
     document.getElementById("automaatioteho").textContent = 
-      "Automaatioteho " + automationvalue.toFixed(1);
+      "Automaatioteho " + automationvalue;
   } else {
     showAchievement("Sinun dih on liian pieni ostoon!");
   }
@@ -106,7 +114,7 @@ function setKlikkausarvo(amount, cost) {
 
     // päivitä teksti
     document.getElementById("klikkausteho").textContent = 
-      "Klikkausteho " + clickvalue.toFixed(1);
+      "Klikkausteho " + clickvalue;
   } else {
     showAchievement("Sinun dih on liian pieni ostoon!");
   }
