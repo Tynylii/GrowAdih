@@ -124,7 +124,6 @@ function save() {
 }
 
 function load() {
-  // haetaan arvot ja muunnetaan numerot takaisin
   clickattu = parseInt(localStorage.getItem("klikit")) || 0;
   currentDih = localStorage.getItem("currentDih") || "";
   clickvalue = parseInt(localStorage.getItem("klikkausteho")) || 1;
@@ -134,7 +133,7 @@ function load() {
   clickvalue == clickvalue;
   automationvalue == automationvalue;
   clickattu == clickattu;
-  
+
   if(currentDih == "demonic") {
     kuva.src = "assets/demonic_dih.png";
     resetKuva();
